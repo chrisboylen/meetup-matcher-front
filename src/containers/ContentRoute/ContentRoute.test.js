@@ -1,7 +1,8 @@
 import React from 'react';
 import { MemoryRouter } from 'react-router';
 import { shallow, render} from 'enzyme';
-import { ContentRoute, mapStateToProps } from './ContentRoute';
+import { ContentRoute, mapStateToProps, mapDispatchToProps } from './ContentRoute';
+import { displayMeetups } from '../../actions';
 
 describe('ContentRoute', () => {
   it('should match snapshot with default path', () => {
@@ -20,6 +21,17 @@ describe('ContentRoute', () => {
       const mappedProps = mapStateToProps(mockState);
 
       expect(mappedProps).toEqual(expected);
+    });
+  });
+
+  describe('mapDispatchToProps', () => {
+    it('dispatch displayMeetups action when displayMeetups is invoked', () => {
+      const mockDispatch = jest.fn();
+      const actionToDispatch = displayMeetups({name: '1'});
+      const mappedProps = mapDispatchToProps(mockDispatch);
+      mappedProps.displayMeetups({name: '1'});
+
+      expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch);
     });
   });
 });
