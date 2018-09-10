@@ -61,5 +61,15 @@ describe('CitySearch', () => {
 
       expect(mockDisplayMeetups).toHaveBeenCalled();
     });
+    it('should set state to empty string when handleSubmit invoked', async () => {
+      wrapper.setState({city: 'denver', state: 'co'});
+      expect(wrapper.state().city).toBe('denver');
+      expect(wrapper.state().state).toBe('co');
+
+      await wrapper.instance().handleSubmit(mockEvent);
+      
+      expect(wrapper.state().city).toBe('');
+      expect(wrapper.state().state).toBe('');
+    });
   });
 });
