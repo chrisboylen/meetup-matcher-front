@@ -27,5 +27,12 @@ describe('CitySearch', () => {
       wrapper.instance().handleChange(mockEvent);
       expect(wrapper.state().state).toBe('bongo');
     });
+    it('should invoke handleChange when city is changed', () => {
+      const spy = spyOn(wrapper.instance(), 'handleChange');
+      wrapper.instance().forceUpdate();
+      wrapper.find('.city-input').simulate('change', mockEvent);
+
+      expect(spy).toHaveBeenCalled();
+    });
   });
 });
