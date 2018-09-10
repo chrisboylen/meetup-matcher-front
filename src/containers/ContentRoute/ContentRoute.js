@@ -8,19 +8,15 @@ import Login from '../Login/Login';
 import Signup from '../Signup/Signup';
 import { User } from '../User/User';
 
-
-export class ContentRoute extends Component {
-
-  render() {
-    return (
-      <Switch>
-        <Route exact path="/" component={Home} />
-        <Route exact path="/login" component={Login} />
-        <Route exact path="/signup" component={Signup} />
-        <Route exact path="/user" component={User} />
-      </Switch>
-    );
-  }
+export const ContentRoute = () => {
+  return (
+    <Switch>
+      <Route exact path="/" component={Home} />
+      <Route exact path="/login" component={Login} />
+      <Route exact path="/signup" component={Signup} />
+      <Route exact path="/user" component={User} />
+    </Switch>
+  );
 }
 
 ContentRoute.propTypes = {

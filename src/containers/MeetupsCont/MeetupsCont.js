@@ -4,9 +4,7 @@ import { PropTypes } from 'prop-types';
 import { connect } from 'react-redux';
 import { displayMeetups } from '../../actions';
 
-
 export class MeetupsCont extends Component {
-  
   render() {
     const { meetups } = this.props;
     const meetupList = meetups.map((meetup, i) => (
@@ -21,12 +19,12 @@ export class MeetupsCont extends Component {
         {meetupList}
       </section>
     );
-
   }
 }
 
 MeetupsCont.propTypes = {
-  meetups: PropTypes.array
+  meetups: PropTypes.array,
+  dispatch: PropTypes.func
 };
 
 export const mapStateToProps = (state) => ({

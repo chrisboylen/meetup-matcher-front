@@ -1,10 +1,10 @@
 import React from 'react';
-import App from './App';
 import { shallow } from 'enzyme';
+import { Meetup } from './Meetup';
 
-describe('App', () => {
+describe('Meetup', () => {
   it('should match snapshot', () => {
-    const wrapper = shallow(<App />);
+    const wrapper = shallow(<Meetup name='bingo'/>);
 
     expect(wrapper).toMatchSnapshot();
   });
