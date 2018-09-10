@@ -34,5 +34,12 @@ describe('reducers', () => {
 
       expect(result).toEqual(newUser);
     });
+    it('should logout user', () => {
+      const initialState = {name: 'billy', email: 'billy@gmail.com', password: 'billy'};
+      const expected = {};
+      const result = userReducer(initialState, actions.logoutUser());
+
+      expect(result).toEqual(expected);
+    });
   });
 });
