@@ -7,6 +7,7 @@ describe('reducers', () => {
     it('should return the initial state', () => {
       const expected = [];
       const result = meetupsReducer(undefined, {});
+
       expect(result).toEqual(expected);
     });
     it('should return state with meetups', () => {
@@ -18,4 +19,13 @@ describe('reducers', () => {
       expect(result).toEqual(expected);
     });
   });
+
+  describe('userReducer', () => {
+    it('should return the initial state', () => {
+      const expected = {};
+      const result = userReducer(undefined, {});
+
+      expect(result).toEqual(expected);
+    })
+  })
 });
