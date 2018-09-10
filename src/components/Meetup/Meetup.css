@@ -1,0 +1,11 @@
+.meetup {
+  background-color: #fef5f5;
+  border-radius: 10px;
+  color: #280303;
+  margin: 0 0 1rem 0;
+  padding: 1rem; }
+  .meetup h2 {
+    margin: 0;
+    text-align: center; }
+  .meetup a {
+    display: block; }

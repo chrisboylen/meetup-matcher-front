@@ -1,0 +1,17 @@
+$mainWhite: #fef5f5;
+$mainDark: #280303;
+
+.meetup {
+  background-color: $mainWhite;
+  border-radius: 10px;
+  color: $mainDark;
+  margin: 0 0 1rem 0;
+  padding: 1rem;
+    h2 {
+      margin: 0;
+      text-align: center;
+    }
+    a {
+      display: block;
+    }
+}
