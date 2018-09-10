@@ -35,6 +35,7 @@ export default class Login extends Component {
           value={password}
           onChange={this.handleChange}
         />
+        <button></button>
       </form>
     )
   }
