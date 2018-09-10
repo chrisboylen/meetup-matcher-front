@@ -22,5 +22,5 @@ describe('actions', () => {
     };
     const result = actions.loginUser(user);
     expect(result).toEqual(expectedAction);
-  })
+  });
 });
