@@ -14,7 +14,7 @@ export const Home = () => {
         </NavLink>
         <NavLink 
           className="form-link signup" 
-          to="/login">Signup
+          to="/signup">Signup
         </NavLink>
       </header>
       <CitySearch />
