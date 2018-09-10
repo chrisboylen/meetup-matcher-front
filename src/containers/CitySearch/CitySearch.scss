@@ -2,11 +2,12 @@ $mainWhite: #fef5f5;
 
 h1, h3 {
   color: $mainWhite;
+  margin: 0;
   text-align: center;
 }
 
 .city-search {
-  background-color: rgba(80, 66, 65, 0.8);
+  background-color: #5c5252cc;
   border-radius: 10px;
   margin: 2rem;
   padding: 2rem;
@@ -16,6 +17,7 @@ form {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+  margin: 1rem 0 0 0;
     input, button {
       font-size: 1.2rem;
       margin: 0 0 1rem 0;

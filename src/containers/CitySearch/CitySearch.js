@@ -12,8 +12,7 @@ export class CitySearch extends Component {
     super();
     this.state = {
       city: '',
-      state: '',
-      buttonClicked: false
+      state: ''
     };
   }
 
@@ -30,7 +29,10 @@ export class CitySearch extends Component {
     const meetups = await fetchPopularMeetups(city, state);
 
     displayMeetups(meetups);
-    this.setState({ buttonClicked: true });
+    this.setState({
+      city: '',
+      state: ''
+    })
   }
 
   render() {
