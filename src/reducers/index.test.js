@@ -26,6 +26,13 @@ describe('reducers', () => {
       const result = userReducer(undefined, {});
 
       expect(result).toEqual(expected);
-    })
-  })
+    });
+    it('should return state with new user', () => {
+      const initialState = {};
+      const newUser = {name: 'billy', email: 'billy@gmail.com', password: 'billy'};
+      const result = userReducer(initialState, actions.loginUser(newUser));
+
+      expect(result).toEqual(newUser);
+    });
+  });
 });
