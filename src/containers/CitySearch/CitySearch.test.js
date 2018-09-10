@@ -88,4 +88,15 @@ describe('CitySearch', () => {
       expect(mappedProps).toEqual(expected);
     });
   });
+
+  describe('mapDispatchToProps', () => {
+    it('dispatch displayMeetups action when displayMeetups is invoked', () => {
+      const mockDispatch = jest.fn();
+      const actionToDispatch = displayMeetups({name: '1'});
+      const mappedProps = mapDispatchToProps(mockDispatch);
+      mappedProps.displayMeetups({name: '1'});
+
+      expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch);
+    });
+  });
 });
