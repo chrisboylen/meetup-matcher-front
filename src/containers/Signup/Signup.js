@@ -1,12 +1,18 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { Link, withRouter } from 'react-router-dom';
+import { PropTypes } from 'prop-types';
+import { auth } from '../../firebase';
+import { loginUser } from '../../actions';
 
-export default class Signup extends Component {
+export class Signup extends Component {
   constructor() {
     super();
     this.state = {
       username: '',
       email: '',
-      password: ''
+      password: '',
+      error: null
     }
   }
 
@@ -16,8 +22,30 @@ export default class Signup extends Component {
     this.setState({ [name]: value })
   }
 
-  render() {
+  handleSubmit = (e) => {
+    e.preventDefault();
     const { username, email, password } = this.state;
+    const { login, history } = this.props;
+    const newUser = {...this.state}
+    auth.doCreateUserWithEmailAndPassword(email, password)
+      .then(authUser => {
+        this.setState({ 
+          username: '',
+          email: '',
+          password: ''
+        });
+      })
+      .catch(error => {
+        this.setState({ error })
+      })
+
+    login(newUser);
+    history.push('/user')
+  }
+
+  render() {
+    const { username, email, password, error } = this.state;
+    const isInvalid = username === '' || email === '' || password === '';
 
     return(
       <form 
@@ -51,8 +79,19 @@ export default class Signup extends Component {
           value={password}
           onChange={this.handleChange}
         />
-        <button>Submit</button>
+        <button disabled={isInvalid}>Submit</button>
+        {error && <h4>{error.message}</h4>}
       </form>
     )
   }
 };
+
+Signup.propTypes = {
+  signup: PropTypes.func
+}
+
+export const mapDispatchToProps = (dispatch) => ({
+  login: (user) => dispatch(loginUser(user))
+});
+
+export default withRouter(connect(null, mapDispatchToProps)(Signup));
