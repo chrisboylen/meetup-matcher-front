@@ -56,12 +56,10 @@ describe('CitySearch', () => {
         <CitySearch displayMeetups={mockDisplayMeetups} />
       );
     });
-    it('should invoke handleSubmit when form is submitted', () => {
-      const spy = spyOn(wrapper.instance(), 'handleSubmit');
-      wrapper.instance().forceUpdate();
-      wrapper.find('button').simulate('click', mockEvent);
+    it('should invoke displayMeetups when handleSubmit is invoked', async () => {
+      await wrapper.instance().handleSubmit(mockEvent);
 
-      expect(spy).toHaveBeenCalled();
+      expect(mockDisplayMeetups).toHaveBeenCalled();
     });
   });
 });
