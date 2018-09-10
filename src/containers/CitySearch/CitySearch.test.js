@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { CitySearch } from './CitySearch';
+import { CitySearch, mapStateToProps, mapDispatchToProps } from './CitySearch';
 import { displayMeetups } from '../../actions';
 
 describe('CitySearch', () => {
@@ -70,6 +70,22 @@ describe('CitySearch', () => {
       
       expect(wrapper.state().city).toBe('');
       expect(wrapper.state().state).toBe('');
+    });
+  });
+
+  describe('mapStateToProps', () => {
+    it('should return an object of meetups array', () => {
+      const mockState = {
+        meetups: [{},{}],
+        displayMeetups: 'bingo'
+      };
+      const expected = {
+        meetups: [{},{}]
+      };
+
+      const mappedProps = mapStateToProps(mockState);
+
+      expect(mappedProps).toEqual(expected);
     });
   });
 });
