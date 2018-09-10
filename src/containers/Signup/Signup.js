@@ -1,24 +1,40 @@
 import React, { Component } from 'react';
 
-export default class Login extends Component {
+export default class Signup extends Component {
   constructor() {
     super();
     this.state = {
+      username: '',
       email: '',
       password: ''
     }
   }
 
+  handleChange = (e) => {
+    const { name, value } = e.target;
+
+    this.setState({ [name]: value })
+  }
+
   render() {
-    const { email, password } = this.state;
+    const { username, email, password } = this.state;
 
     return(
       <form 
-        className="login-form"
+        className="signup-form"
         onSubmit={this.handleSubmit}
       >
         <input 
-          className="email-input"
+          className="username-input-signup"
+          required
+          type="text"
+          name="username"
+          placeholder="Username"
+          value={username}
+          onChange={this.handleChange}
+        />
+        <input 
+          className="email-input-signup"
           required
           type="email"
           name="email"
@@ -27,7 +43,7 @@ export default class Login extends Component {
           onChange={this.handleChange}
         />
         <input 
-          className="password-input"
+          className="password-input-signup"
           required
           type="password"
           name="password"
