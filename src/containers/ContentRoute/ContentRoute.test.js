@@ -10,7 +10,18 @@ describe('ContentRoute', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
- 
+  describe('mapStateToProps', () => {
+    it('should return an object of meetups array', () => {
+      const mockState = {
+        meetups: [{ name: '1' }, { name: '1' }],
+        displayMeetups: 'BINGO'
+      };
+      const expected = { meetups: [{ name: '1' }, { name: '1' }] };
+      const mappedProps = mapStateToProps(mockState);
+
+      expect(mappedProps).toEqual(expected);
+    });
+  });
 });
 
 
