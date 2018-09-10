@@ -76,11 +76,11 @@ describe('CitySearch', () => {
   describe('mapStateToProps', () => {
     it('should return an object of meetups array', () => {
       const mockState = {
-        meetups: [{},{}],
+        meetups: [{}, {}],
         displayMeetups: 'bingo'
       };
       const expected = {
-        meetups: [{},{}]
+        meetups: [{}, {}]
       };
 
       const mappedProps = mapStateToProps(mockState);

@@ -17,7 +17,7 @@ export const ContentRoute = () => {
       <Route exact path="/user" component={User} />
     </Switch>
   );
-}
+};
 
 ContentRoute.propTypes = {
   meetups: PropTypes.array,

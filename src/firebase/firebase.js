@@ -8,14 +8,14 @@ const config = {
   projectId: "meetup-matcher",
   storageBucket: "meetup-matcher.appspot.com",
   messagingSenderId: "1063835221050"
-}
+};
 
 if (!firebase.apps.length) {
   firebase.initializeApp(config)
-}
+};
   
 const auth = firebase.auth();
 
 export {
-  auth,
-}
+  auth
+};
