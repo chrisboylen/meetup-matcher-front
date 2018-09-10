@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CitySearch should match snapshot 1`] = `
+<div
+  className="city-search"
+>
+  <h1>
+    Welcome to Meetup Matcher
+  </h1>
+  <h3>
+    Enter your destination to find meetups.
+  </h3>
+  <form
+    onSubmit={[Function]}
+  >
+    <input
+      className="search city-input"
+      name="city"
+      onChange={[Function]}
+      placeholder="Enter city"
+      type="text"
+      value=""
+    />
+    <input
+      className="search state-input"
+      name="state"
+      onChange={[Function]}
+      placeholder="Enter state"
+      type="text"
+      value=""
+    />
+    <button>
+      Submit
+    </button>
+  </form>
+</div>
+`;
