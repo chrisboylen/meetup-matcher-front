@@ -7,14 +7,13 @@ export const fetchPopularMeetups = async (city, state) => {
   try {
     const response = await fetch(url);
     const meetupData = await response.json();
-    console.log(meetupData);
     const cleanedMeetupData = await meetupData.results.map(meetup => {
-      return cleanMeetupData(meetup)
+      return cleanMeetupData(meetup);
     });
 
     return cleanedMeetupData;
   } catch (error) {
-    console.log(error.message)
+    console.log(error.message);
   }
 };
 
