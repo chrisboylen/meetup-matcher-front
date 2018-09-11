@@ -14,6 +14,7 @@ export const fetchPopularMeetups = async (city, state) => {
     return cleanedMeetupData;
   } catch (error) {
     console.log(error.message);
+    return 'Error getting meetups.'
   }
 };
 

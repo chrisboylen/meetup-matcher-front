@@ -1,5 +1,7 @@
 import { shallow } from 'enzyme';
 import { fetchPopularMeetups } from './fetchData';
+import { cleanMeetupData } from './helper';
+import { mockMeetups, cleanMeetup } from './mockData';
 import { API_KEY } from '../key';
 
 describe('fetchPopularMeetups', () => {
@@ -8,8 +10,9 @@ describe('fetchPopularMeetups', () => {
   let state;
 
   beforeEach(() => {
-    window.fetch =jest.fn().mockImplementation(() => Promise.resolve({
-      json: () => Promise.resolve({name: 'bingo'})
+    window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
+      ok: true,
+      json: () => Promise.resolve( mockMeetups )
     }));
     city = 'denver';
     state = 'co';
@@ -20,5 +23,20 @@ describe('fetchPopularMeetups', () => {
     await fetchPopularMeetups(city, state);
 
     expect(window.fetch).toHaveBeenCalledWith(url);
+  });
+  it('should return an object if status code is ok', async () => {
+    const expected = cleanMeetup;
+    const result = await fetchPopularMeetups(city, state);
+
+    expect(result).toEqual(expected);
+  });
+  it('should throw an error when status code is not ok', async () => {
+    const error = 'Error getting meetups.'
+    window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
+      json: () => Promise.reject(error)
+    }))
+    const result = await fetchPopularMeetups();
+
+    expect(result).toEqual(error);
   });
 });
