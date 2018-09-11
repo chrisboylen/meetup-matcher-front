@@ -5,7 +5,7 @@ import { displayMeetups } from '../../actions';
 
 describe('MeetupsCont', () => {
   it('should match snapshot', () => {
-    const meetups = [{},{}]
+    const meetups = [{}, {}];
     const wrapper = shallow(<MeetupsCont meetups={meetups}/>);
 
     expect(wrapper).toMatchSnapshot();

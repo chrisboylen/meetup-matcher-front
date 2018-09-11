@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink, withRouter } from 'react-router-dom';
 import CitySearch from '../../containers/CitySearch/CitySearch';
-import './Home.css'
+import './Home.css';
 
 export const Home = () => {
   return (

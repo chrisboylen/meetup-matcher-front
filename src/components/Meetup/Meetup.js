@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './Meetup.css'
+import './Meetup.css';
 
 export const Meetup = ({...meetup}) => {
   return (
