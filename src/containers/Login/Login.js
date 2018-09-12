@@ -21,34 +21,67 @@ export class Login extends Component {
 
     this.setState({ [name]: value })
   }
+
+  handleLoginSubmit = async (e) => {
+    e.preventDefault();
+    const { history, loginUser } = this.props;
+    const { email, password } = this.state;
+    const response = await signInFirebase(email, password);
+    const userInfo = await cleanUserInfo(auth.currentUser)
+    console.log(userInfo);  
+    
+    if (!userInfo) {
+      return userError('Email and/or Password do not match.');
+    }
+
+    loginUser(userInfo)
+    history.push('/user')
+  }
+
   render() {
     const { email, password } = this.state;
 
     return(
-      <form 
-        className="login-form"
-        onSubmit={this.handleSubmit}
-      >
-        <input 
-          className="email-input"
-          required
-          type="email"
-          name="email"
-          placeholder="Email"
-          value={email}
-          onChange={this.handleChange}
-        />
-        <input 
-          className="password-input"
-          required
-          type="password"
-          name="password"
-          placeholder="Password"
-          value={password}
-          onChange={this.handleChange}
-        />
-        <button>Submit</button>
-      </form>
+      <div className="login-cont">
+        <form 
+          className="login-form"
+          onSubmit={this.handleLoginSubmit}
+        >
+          <input 
+            className="email-input"
+            required
+            type="email"
+            name="email"
+            placeholder="Email"
+            value={email}
+            onChange={this.handleChange}
+          />
+          <input 
+            className="password-input"
+            required
+            type="password"
+            name="password"
+            placeholder="Password"
+            value={password}
+            onChange={this.handleChange}
+          />
+          <button>Submit</button>
+        </form>
+        <NavLink className="login-link" to='/signup'>
+            Sign Up
+        </NavLink>
+      </div>
     )
   }
 };
+
+Login.propTypes = {
+  userError: PropTypes.func,
+}
+
+export const mapDispatchToProps = (dispatch) => ({
+  login: (user) => dispatch(loginUser(user)),
+  userError: (message) => dispatch(userError(message))
+});
+
+export default withRouter(connect(null, mapDispatchToProps)(Login));
