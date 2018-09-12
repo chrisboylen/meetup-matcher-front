@@ -8,3 +8,9 @@ export const cleanMeetupData = (fetchedMeetup) => {
   };
   return cleanMeetup;
 };
+
+export const cleanUserInfo = (userInfo) => ({
+  username: userInfo.displayName,
+  email: userInfo.email,
+  userId: userInfo.uid
+});
