@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Route, withRouter, Switch } from 'react-router-dom';
 import { PropTypes } from 'prop-types';
 import { connect } from 'react-redux';
@@ -19,17 +19,4 @@ export const ContentRoute = () => {
   );
 };
 
-ContentRoute.propTypes = {
-  meetups: PropTypes.array,
-  displayMeetups: PropTypes.func
-};
-
-export const mapStateToProps = ({meetups}) => ({
-  meetups
-});
-
-export const mapDispatchToProps = (dispatch) => ({
-  displayMeetups: (meetups) => dispatch(displayMeetups(meetups))
-});
-
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(ContentRoute));
+export default withRouter(ContentRoute);
