@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link, withRouter } from 'react-router-dom';
 import { PropTypes } from 'prop-types';
-import { auth } from '../../firebase';
-import { loginUser } from '../../actions';
+import { auth, writeUserData } from '../../firebase/firebase';
+import { createUserFirebase } from '../../firebase/auth';
+import { loginUser, userError } from '../../actions';
 
 export class Signup extends Component {
   constructor() {
@@ -22,23 +23,16 @@ export class Signup extends Component {
     this.setState({ [name]: value })
   }
 
-  handleSubmit = (e) => {
+  handleSubmit = async (e) => {
     e.preventDefault();
     const { username, email, password } = this.state;
     const { login, history } = this.props;
-    const newUser = {...this.state}
-    auth.doCreateUserWithEmailAndPassword(email, password)
-      .then(authUser => {
-        this.setState({ 
-          username: '',
-          email: '',
-          password: ''
-        });
-      })
-      .catch(error => {
-        this.setState({ error })
-      })
-
+    const newUser = {username, email};
+    const userInfo = await createUserFirebase(email, password);
+      
+    if (!userInfo) {
+      return userError('Email has already been taken.');
+    }
     login(newUser);
     history.push('/user')
   }
