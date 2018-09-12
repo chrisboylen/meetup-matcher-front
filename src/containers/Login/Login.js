@@ -24,17 +24,16 @@ export class Login extends Component {
 
   handleLoginSubmit = async (e) => {
     e.preventDefault();
-    const { history, loginUser } = this.props;
+    const { history, login } = this.props;
     const { email, password } = this.state;
-    const response = await signInFirebase(email, password);
+    await signInFirebase(email, password);
     const userInfo = await cleanUserInfo(auth.currentUser)
-    console.log(userInfo);  
     
     if (!userInfo) {
       return userError('Email and/or Password do not match.');
     }
 
-    loginUser(userInfo)
+    login(userInfo)
     history.push('/user')
   }
 
@@ -76,7 +75,9 @@ export class Login extends Component {
 };
 
 Login.propTypes = {
-  userError: PropTypes.func,
+  login: PropTypes.func,
+  history: PropTypes.object,
+  userError: PropTypes.func
 }
 
 export const mapDispatchToProps = (dispatch) => ({

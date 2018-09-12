@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Link, withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import { PropTypes } from 'prop-types';
-import { auth, writeUserData } from '../../firebase/firebase';
 import { createUserFirebase, updateUserFirebase } from '../../firebase/auth';
 import { loginUser, userError } from '../../actions';
 
@@ -82,7 +81,8 @@ export class Signup extends Component {
 };
 
 Signup.propTypes = {
-  signup: PropTypes.func,
+  login: PropTypes.func,
+  history: PropTypes.object,
   userError: PropTypes.func
 }
 

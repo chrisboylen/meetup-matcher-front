@@ -18,7 +18,7 @@ export const updateUserFirebase = (username) => auth.currentUser.updateProfile({
 
 export const getUserinfo = () => auth.currentUser
 
-export const doSignOut = () => auth.signOut();
+export const signOut = () => auth.signOut();
 
 export const doPasswordReset = (email) => auth.sendPasswordResetEmail(email);
 
