@@ -11,3 +11,8 @@ export const loginUser = (user) => ({
 export const logoutUser = () => ({
   type: 'LOGOUT_USER'
 });
+
+export const userError = (message) => ({
+  type: 'USER_ERROR',
+  message
+});
