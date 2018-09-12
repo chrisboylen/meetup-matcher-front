@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Link, withRouter } from 'react-router-dom';
 import { PropTypes } from 'prop-types';
 import { auth, writeUserData } from '../../firebase/firebase';
-import { createUserFirebase } from '../../firebase/auth';
+import { createUserFirebase, updateUserFirebase } from '../../firebase/auth';
 import { loginUser, userError } from '../../actions';
 
 export class Signup extends Component {
@@ -29,7 +29,8 @@ export class Signup extends Component {
     const { login, history } = this.props;
     const newUser = {username, email};
     const userInfo = await createUserFirebase(email, password);
-      
+     await updateUserFirebase(username)
+
     if (!userInfo) {
       return userError('Email has already been taken.');
     }
@@ -81,11 +82,13 @@ export class Signup extends Component {
 };
 
 Signup.propTypes = {
-  signup: PropTypes.func
+  signup: PropTypes.func,
+  userError: PropTypes.func
 }
 
 export const mapDispatchToProps = (dispatch) => ({
-  login: (user) => dispatch(loginUser(user))
+  login: (user) => dispatch(loginUser(user)),
+  userError: (message) => dispatch(userError(message)) 
 });
 
 export default withRouter(connect(null, mapDispatchToProps)(Signup));
