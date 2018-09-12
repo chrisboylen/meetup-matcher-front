@@ -1,8 +1,18 @@
 import { auth } from './firebase';
 
-export const doCreateUserWithEmailAndPassword = (email, password) => auth.createUserWithEmailAndPassword(email, password);
+export const createUserFirebase = (email, password) => auth.createUserWithEmailAndPassword(email, password);
 
-export const doSignInWithEmailAndPassword = (email, password) => auth.signInWithEmailAndPassword(email, password);
+export const authStateChange = auth.onAuthStateChanged(user => {
+  if (user) {
+    const displayName = user.displayName;
+    const email = user.email;
+    const userId = user.uid;
+  } else {
+    //user signed out
+  }
+}) 
+
+export const signInFirebase = (email, password) => auth.signInWithEmailAndPassword(email, password);
 
 export const doSignOut = () => auth.signOut();
 
