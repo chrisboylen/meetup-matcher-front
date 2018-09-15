@@ -3,7 +3,7 @@ import { Route, withRouter, Switch } from 'react-router-dom';
 import { Home } from '../../components/Home/Home';
 import Login from '../Login/Login';
 import Signup from '../Signup/Signup';
-import { User } from '../User/User';
+import User from '../User/User';
 
 export const ContentRoute = () => {
   return (
