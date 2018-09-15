@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Meetup } from '../../components/Meetup/Meetup';
 import { PropTypes } from 'prop-types';
 import { connect } from 'react-redux';
-import { displayMeetups } from '../../actions';
 
 export class MeetupsCont extends Component {
   render() {
@@ -27,12 +26,6 @@ MeetupsCont.propTypes = {
   dispatch: PropTypes.func
 };
 
-export const mapStateToProps = (state) => ({
-  meetups: state.meetups
-});
+export const mapStateToProps = ({ meetups }) => ({ meetups });
 
-export const mapDispatchToProps = (dispatch) => ({
-  displayMeetups: (meetups) => dispatch(displayMeetups(meetups))
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(MeetupsCont);
+export default connect(mapStateToProps, null)(MeetupsCont);

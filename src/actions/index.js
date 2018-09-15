@@ -1,5 +1,5 @@
-export const displayMeetups = (meetups) => ({
-  type: 'DISPLAY_MEETUPS',
+export const getMeetups = (meetups) => ({
+  type: 'GET_MEETUPS',
   meetups
 });
 

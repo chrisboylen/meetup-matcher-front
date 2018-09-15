@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { PropTypes } from 'prop-types';
 import MeetupsCont from '../MeetupsCont/MeetupsCont';
 import { fetchPopularMeetups } from '../../Utilities/fetchData';
-import { displayMeetups } from '../../actions';
+import { getMeetups } from '../../actions';
 import './CitySearch.css'
 
 export class CitySearch extends Component {
@@ -23,12 +23,12 @@ export class CitySearch extends Component {
   }
 
   handleSubmit = async (e) => {
-    const { displayMeetups } = this.props;
+    const { getMeetups } = this.props;
     e.preventDefault();
     const { city, state } = this.state;
     const meetups = await fetchPopularMeetups(city, state);
 
-    displayMeetups(meetups);
+    getMeetups(meetups);
     this.setState({
       city: '',
       state: ''
@@ -78,7 +78,7 @@ export const mapStateToProps = (state) => ({
 });
 
 export const mapDispatchToProps = (dispatch) => ({
-  displayMeetups: (meetups) => dispatch(displayMeetups(meetups))
+  getMeetups: (meetups) => dispatch(getMeetups(meetups))
 });
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(CitySearch));
