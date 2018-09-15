@@ -1,8 +1,6 @@
 import * as firebase from 'firebase';
 import 'firebase/auth';
 
-
-
 const config = {
   apiKey: "AIzaSyCR6G7Ck_ZR4ERliNZ7oznchKlNOCisi90",
   authDomain: "meetup-matcher.firebaseapp.com",
