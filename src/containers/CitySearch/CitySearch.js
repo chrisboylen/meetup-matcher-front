@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
-import { fetchPopularMeetups } from '../../Utilities/fetchData';
-import MeetupsCont from '../MeetupsCont/MeetupsCont';
-import { displayMeetups } from '../../actions';
 import { connect } from 'react-redux'; 
 import { PropTypes } from 'prop-types';
+import MeetupsCont from '../MeetupsCont/MeetupsCont';
+import { fetchPopularMeetups } from '../../Utilities/fetchData';
+import { displayMeetups } from '../../actions';
 import './CitySearch.css'
 
 export class CitySearch extends Component {
@@ -60,7 +60,7 @@ export class CitySearch extends Component {
             placeholder="Enter state"
             onChange={this.handleChange}
           />
-          <button>Submit</button>
+          <button>SEARCH</button>
         </form>
         {meetups && <MeetupsCont />}
       </div>
