@@ -13,23 +13,25 @@ export const Header = ({ logout, user }) => {
   return (
     <header className="navbar">
       <h1>Meetup Matcher</h1>
-      <Link
-        className="form-link login"
-        to="/login">
-          Login
-      </Link>
-      <Link
-        className="form-link signup"
-        to="/signup">
-          Signup
-      </Link>
-      <Link
-        className="form-link logout"
-        to="/" replace>
-          <button className="logout-btn" onClick={handleLogout} >
-            Log Out
-          </button>
-      </Link>
+      <div className="user-links">
+        <Link
+          className="form-link login"
+          to="/login">
+            Login
+        </Link>
+        <Link
+          className="form-link signup"
+          to="/signup">
+            Signup
+        </Link>
+        <Link
+          className="form-link logout"
+          to="/" replace>
+            <button className="logout-btn" onClick={handleLogout} >
+              Log Out
+            </button>
+        </Link>
+      </div>
     </header>
   );
 };

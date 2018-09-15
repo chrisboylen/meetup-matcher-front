@@ -4,7 +4,6 @@ import CitySearch from '../../containers/CitySearch/CitySearch';
 import Header from '../../containers/Header/Header';
 import './Home.css';
 
-
 export const Home = () => {
   return (
     <article className="home-cont">
