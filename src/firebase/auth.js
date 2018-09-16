@@ -16,8 +16,6 @@ export const signInFirebase = (email, password) => auth.signInWithEmailAndPasswo
 
 export const updateUserFirebase = (username) => auth.currentUser.updateProfile({displayName: username})
 
-export const getUserinfo = () => auth.currentUser
-
 export const logOutFirebase = () => auth.signOut();
 
 export const doPasswordReset = (email) => auth.sendPasswordResetEmail(email);
