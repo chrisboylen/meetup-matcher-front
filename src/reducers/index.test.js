@@ -14,7 +14,7 @@ describe('reducers', () => {
       const initialState = [];
       const meetups = [{name: 'something'}, {name: 'something'}];
       const expected = [...meetups];
-      const result = meetupsReducer(initialState, actions.displayMeetups(meetups));
+      const result = meetupsReducer(initialState, actions.getMeetups(meetups));
 
       expect(result).toEqual(expected);
     });

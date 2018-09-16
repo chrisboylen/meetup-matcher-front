@@ -30,7 +30,7 @@ exports[`CitySearch should match snapshot 1`] = `
       value=""
     />
     <button>
-      Submit
+      SEARCH
     </button>
   </form>
 </div>

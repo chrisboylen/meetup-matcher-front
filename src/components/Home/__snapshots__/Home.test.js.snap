@@ -4,29 +4,7 @@ exports[`Home should match snapshot 1`] = `
 <article
   className="home-cont"
 >
-  <header
-    className="navbar"
-  >
-    <h1>
-      Meetup Matcher
-    </h1>
-    <NavLink
-      activeClassName="active"
-      aria-current="page"
-      className="form-link login"
-      to="/login"
-    >
-      Login
-    </NavLink>
-    <NavLink
-      activeClassName="active"
-      aria-current="page"
-      className="form-link signup"
-      to="/signup"
-    >
-      Signup
-    </NavLink>
-  </header>
+  <Connect(Component) />
   <withRouter(Connect(CitySearch)) />
 </article>
 `;
