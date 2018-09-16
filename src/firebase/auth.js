@@ -14,7 +14,10 @@ export const authStateChange = auth.onAuthStateChanged(user => {
 
 export const signInFirebase = (email, password) => auth.signInWithEmailAndPassword(email, password);
 
-export const updateUserFirebase = (username) => auth.currentUser.updateProfile({displayName: username})
+export const updateUserFirebase = (username) => auth.currentUser.updateProfile({
+  displayName: username,
+  userId: auth.currentUser.uid
+})
 
 export const logOutFirebase = () => auth.signOut();
 

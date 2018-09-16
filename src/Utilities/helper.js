@@ -11,8 +11,8 @@ export const cleanMeetupData = (fetchedMeetup) => {
 };
 
 export const cleanUserInfo = (userInfo) => ({
-  username: userInfo.displayName,
+  username: userInfo.userName,
   email: userInfo.email,
-  userId: userInfo.uid,
+  userId: userInfo.userId,
   questions: userInfo.questions || []
 });

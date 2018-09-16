@@ -19,6 +19,7 @@ export const auth = firebase.auth();
 
 export const updateQuestionsFirebase = (userId, userName, email, questions)  => {
   firebase.database().ref('users/' + userId).set({
+    userId: userId,
     userName: userName,
     email: email,
     questions: questions

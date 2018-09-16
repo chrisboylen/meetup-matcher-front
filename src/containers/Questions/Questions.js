@@ -3,6 +3,7 @@ import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { PropTypes } from 'prop-types';
 import { addUserQuestions } from '../../actions';
+import { updateQuestionsFirebase, auth } from '../../firebase/firebase';
 import './Questions.css';
 
 export class Questions extends Component {
@@ -21,10 +22,12 @@ export class Questions extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    
+    const questions = this.state;
     const { addUserQuestions } = this.props;
-    const { questions } = this.state;
-console.log(this.props.questions);
+    const { username, email } = this.props.user
+    const userId = auth.currentUser.uid
+
+    updateQuestionsFirebase(userId, username, email, questions)
     addUserQuestions(questions);
   }
 
@@ -136,9 +139,14 @@ console.log(this.props.questions);
 
 Questions.propTypes = {
   addUserQuestions: PropTypes.func,
+  questions: PropTypes.array,
+  user: PropTypes.object
 };
 
-export const mapStateToProps = ({ questions }) => ({ questions });
+export const mapStateToProps = (state) => ({ 
+  questions: state.questions,
+  user: state.user 
+});
 
 export const mapDispatchToProps = (dispatch) => ({
   addUserQuestions: (questions) => dispatch(addUserQuestions(questions))
