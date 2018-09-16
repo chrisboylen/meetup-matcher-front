@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { PropTypes } from 'prop-types';
 import { NavLink, withRouter } from 'react-router-dom';
 import { signInFirebase } from '../../firebase/auth';
+import { getUserInfoFirebase } from '../../firebase/firebase';
 import { userError, loginUser } from '../../actions';
 import { auth } from '../../firebase/firebase';
 import { cleanUserInfo } from '../../Utilities/helper';
@@ -27,8 +28,8 @@ export class Login extends Component {
     const { history, login } = this.props;
     const { email, password } = this.state;
     await signInFirebase(email, password);
-    const userInfo = await cleanUserInfo(auth.currentUser)
-    
+    const userInfo = await getUserInfoFirebase(auth.currentUser.uid)
+
     if (!userInfo) {
       return userError('Email and/or Password do not match.');
     }
@@ -78,7 +79,7 @@ Login.propTypes = {
   login: PropTypes.func,
   history: PropTypes.object,
   userError: PropTypes.func
-}
+};
 
 export const mapDispatchToProps = (dispatch) => ({
   login: (user) => dispatch(loginUser(user)),

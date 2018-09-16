@@ -16,3 +16,8 @@ export const userError = (message) => ({
   type: 'USER_ERROR',
   message
 });
+
+export const addUserQuestions = (questions) => ({
+  type: 'ADD_USER_QUESTIONS',
+  questions
+});

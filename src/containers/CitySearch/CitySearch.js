@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
-import { connect } from 'react-redux'; 
+import { connect } from 'react-redux';
 import { PropTypes } from 'prop-types';
 import MeetupsCont from '../MeetupsCont/MeetupsCont';
 import { fetchPopularMeetups } from '../../Utilities/fetchData';
@@ -73,9 +73,7 @@ CitySearch.propTypes = {
   meetups: PropTypes.array
 };
 
-export const mapStateToProps = (state) => ({
-  meetups: state.meetups
-});
+export const mapStateToProps = ({ meetups }) => ({ meetups });
 
 export const mapDispatchToProps = (dispatch) => ({
   getMeetups: (meetups) => dispatch(getMeetups(meetups))

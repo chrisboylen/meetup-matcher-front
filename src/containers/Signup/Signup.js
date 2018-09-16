@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { PropTypes } from 'prop-types';
 import { createUserFirebase, updateUserFirebase } from '../../firebase/auth';
+import { auth } from '../../firebase/firebase';
 import { loginUser, userError } from '../../actions';
 
 export class Signup extends Component {
@@ -33,7 +34,10 @@ export class Signup extends Component {
     if (!userInfo) {
       return userError('Email has already been taken.');
     }
-    login(newUser);
+    const updatedUser = { ...newUser,
+      userId: auth.currentUser.uid
+    }
+    login(updatedUser);
     history.push('/user')
   }
 
