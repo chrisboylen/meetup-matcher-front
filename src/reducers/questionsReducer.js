@@ -5,4 +5,4 @@ export const questionsReducer = (state = [], action) => {
     default: 
       return state;
   }
-}
+};
