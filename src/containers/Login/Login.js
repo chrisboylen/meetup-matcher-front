@@ -6,6 +6,8 @@ import { signInFirebase } from '../../firebase/auth';
 import { getUserInfoFirebase } from '../../firebase/firebase';
 import { userError, loginUser } from '../../actions';
 import { auth } from '../../firebase/firebase';
+import Header from '../Header/Header';
+import './Login.css';
 
 export class Login extends Component {
   constructor() {
@@ -42,10 +44,12 @@ export class Login extends Component {
 
     return(
       <div className="login-cont">
+        <Header />
         <form 
           className="login-form"
           onSubmit={this.handleLoginSubmit}
         >
+          <h1>Log In</h1>
           <input 
             className="email-input"
             required
@@ -66,9 +70,6 @@ export class Login extends Component {
           />
           <button>Submit</button>
         </form>
-        <NavLink className="login-link" to='/signup'>
-            Sign Up
-        </NavLink>
       </div>
     )
   }
