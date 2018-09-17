@@ -1,13 +1,14 @@
 import * as actions from './index';
 
 describe('actions', () => {
-  it('should return a type of DISPLAY_MEETUPS with meetups', () => {
+  it('should return a type of GET_MEETUPS with meetups', () => {
     const meetups = [{}];
     const expectedAction = {
-      type: 'DISPLAY_MEETUPS',
+      type: 'GET_MEETUPS',
       meetups
     };
-    const result = actions.displayMeetups(meetups);
+    const result = actions.getMeetups(meetups);
+
     expect(result).toEqual(expectedAction);
   });
   it('should return a type of LOGIN_USER with user', () => {
@@ -21,6 +22,33 @@ describe('actions', () => {
       user: user
     };
     const result = actions.loginUser(user);
+
+    expect(result).toEqual(expectedAction);
+  });
+  it('should return a type of LOGOUT_USER with user', () => {
+    const expectedAction = { type: 'LOGOUT_USER'};
+    const result = actions.logoutUser();
+
+    expect(result).toEqual(expectedAction);
+  });
+  it('should have type of USER_ERROR', () => {
+    const message = 'This email is already on file';
+    const expectedAction = {
+      type: 'USER_ERROR',
+      message
+    };
+    const result = actions.userError(message);
+
+    expect(result).toEqual(expectedAction);
+  });
+  it('should have a type of ADD_USER_QUESTIONS', () => {
+    const questions = {hiking: true};
+    const expectedAction = {
+      type: 'ADD_USER_QUESTIONS',
+      questions
+    };
+    const result = actions.addUserQuestions(questions);
+
     expect(result).toEqual(expectedAction);
   });
 });

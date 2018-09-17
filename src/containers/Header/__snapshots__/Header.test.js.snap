@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header Component should match snapshot 1`] = `
+<header
+  className="navbar"
+>
+  <h1>
+    Meetup Matcher
+  </h1>
+  <div
+    className="user-links"
+  >
+    <Link
+      className="form-link login"
+      replace={false}
+      to="/login"
+    >
+      Login
+    </Link>
+    <Link
+      className="form-link signup"
+      replace={false}
+      to="/signup"
+    >
+      Signup
+    </Link>
+  </div>
+</header>
+`;

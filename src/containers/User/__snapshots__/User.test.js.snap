@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`User Component should match snapshot when user has no questions 1`] = `
+<div
+  className="user"
+>
+  <withRouter(Connect(Header)) />
+  <withRouter(Connect(Questions)) />
+</div>
+`;
+
+exports[`User Component should match snapshot when user has questions 1`] = `
+<div
+  className="user"
+>
+  <withRouter(Connect(Header)) />
+  <withRouter(Connect(CitySearch)) />
+</div>
+`;
