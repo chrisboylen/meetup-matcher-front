@@ -32,5 +32,12 @@ describe('Signup Component', () => {
 
       expect(wrapper.state().password).toBe('bingo');
     });
+    it('should invoke handleChange when username is changed', () => {
+      const spy = spyOn(wrapper.instance(), 'handleChange');
+      wrapper.instance().forceUpdate();
+      wrapper.find('.username-input-signup').simulate('change', mockEvent);
+
+      expect(spy).toHaveBeenCalled();
+    });
   });
 });
