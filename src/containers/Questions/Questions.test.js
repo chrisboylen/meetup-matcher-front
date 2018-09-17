@@ -1,6 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { Questions, mapStateToProps, mapDispatchToProps } from './Questions';
+import { addUserQuestions } from '../../actions';
 
 describe('Questions', () => {
   let wrapper;
