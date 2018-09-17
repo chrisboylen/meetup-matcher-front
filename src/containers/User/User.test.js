@@ -9,4 +9,10 @@ describe('User Component', () => {
 
     expect(wrapper).toMatchSnapshot()
   });
+  it('should match snapshot when user has no questions', () => {
+    const mockUser = {questions: ''}
+    const wrapper = shallow(<User user={mockUser} />);
+
+    expect(wrapper).toMatchSnapshot()
+  });
 });
