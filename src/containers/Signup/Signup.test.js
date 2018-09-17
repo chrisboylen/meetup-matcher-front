@@ -1,6 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { Signup, mapStateToProps, mapDispatchToProps } from './Signup';
+import { loginUser } from '../../actions';
 
 describe('Signup Component', () => {
   let wrapper;
@@ -52,6 +53,21 @@ describe('Signup Component', () => {
       wrapper.find('.password-input-signup').simulate('change', mockEvent);
 
       expect(spy).toHaveBeenCalled();
+    });
+  });
+
+  describe('handleSubmit', () => {
+    
+  });
+
+  describe('mapDispatchToProps', () => {
+    it('should dispatch loginUser when login is invoked', () => {
+      const mockDispatch = jest.fn();
+      const actionToDispatch = loginUser();
+      const mappedProps = mapDispatchToProps(mockDispatch);
+      mappedProps.login();
+
+      expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch);
     });
   });
 });
