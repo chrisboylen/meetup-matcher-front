@@ -112,4 +112,15 @@ describe('Questions', () => {
       expect(mappedProps).toEqual(expected);
     });
   });
+
+  describe('mapDispatchToProps', () => {
+    it('should dispatch addUserQuestions when addUserQuestions is invoked', () => {
+      const mockDispatch = jest.fn();
+      const actionToDispatch = addUserQuestions({hiking: true});
+      const mappedProps = mapDispatchToProps(mockDispatch);
+      mappedProps.addUserQuestions({hiking: true});
+
+      expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch);
+    });
+  });
 });
