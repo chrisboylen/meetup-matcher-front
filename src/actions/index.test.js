@@ -41,6 +41,14 @@ describe('actions', () => {
 
     expect(result).toEqual(expectedAction);
   });
+  it('should have a type of ADD_USER_QUESTIONS', () => {
+    const questions = {hiking: true};
+    const expectedAction = {
+      type: 'ADD_USER_QUESTIONS',
+      questions
+    };
+    const result = actions.addUserQuestions(questions);
+
     expect(result).toEqual(expectedAction);
   });
 });
