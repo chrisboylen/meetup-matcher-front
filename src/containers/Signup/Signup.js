@@ -82,7 +82,7 @@ export class Signup extends Component {
             value={password}
             onChange={this.handleChange}
           />
-          <button disabled={isInvalid}>Submit</button>
+          <button disabled={isInvalid}>Signup</button>
           {error && <h4>{error.message}</h4>}
         </form>
       </div>
