@@ -87,5 +87,12 @@ describe('Questions', () => {
 
       expect(spy).toHaveBeenCalled();
     });
+    it('should invoke handleChange when realEstate is changed', () => {
+      const spy = spyOn(wrapper.instance(), 'handleChange');
+      wrapper.instance().forceUpdate();
+      wrapper.find('#realEstate').simulate('change', mockEvent);
+
+      expect(spy).toHaveBeenCalled();
+    });
   });
 });
