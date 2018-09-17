@@ -22,6 +22,15 @@ describe('actions', () => {
       user: user
     };
     const result = actions.loginUser(user);
+
+    expect(result).toEqual(expectedAction);
+  });
+  it('should return a type of LOGOUT_USER with user', () => {
+    const expectedAction = { type: 'LOGOUT_USER'};
+    const result = actions.logoutUser();
+
+    expect(result).toEqual(expectedAction);
+  });
     expect(result).toEqual(expectedAction);
   });
 });
