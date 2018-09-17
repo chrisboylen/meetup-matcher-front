@@ -95,4 +95,14 @@ describe('Questions', () => {
       expect(spy).toHaveBeenCalled();
     });
   });
+
+  describe('mapStateToProps', () => {
+    it('should return an object of questions', () => {
+      const mockState = {questions: [{traveling: true}], meetups: 'gravy'};
+      const expected = {questions: [{traveling: true}]};
+      const mappedProps = mapStateToProps(mockState);
+
+      expect(mappedProps).toEqual(expected);
+    });
+  });
 });
