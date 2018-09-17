@@ -1,6 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { User, mapStateToProps, mapDispatchToProps } from './User';
+import { logoutUser } from '../../actions/index';
 
 describe('User Component', () => {
   it('should match snapshot when user has questions', () => {
@@ -23,6 +24,16 @@ describe('User Component', () => {
       const mappedProps = mapStateToProps(mockState);
 
       expect(mappedProps).toEqual(expected);
+    });
+  });
+  describe('mapDispatchToProps', () => {
+    it('should dispatch logoutUser when logoutUser is invoked', () => {
+      const mockDispatch = jest.fn();
+      const actionToDispatch = logoutUser();
+      const mappedProps = mapDispatchToProps(mockDispatch);
+      mappedProps.logoutUser();
+
+      expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch);
     });
   });
 });
