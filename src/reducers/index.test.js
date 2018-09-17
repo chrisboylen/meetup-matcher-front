@@ -59,4 +59,13 @@ describe('reducers', () => {
       expect(result).toEqual([newQuestions]);
     });
   });
+
+  describe('userErrorReducer', () => {
+    it('should return initial state', () => {
+      const expected = '';
+      const result = (undefined, '');
+      
+      expect(result).toEqual(expected);
+    });
+  });
 });
