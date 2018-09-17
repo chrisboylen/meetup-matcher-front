@@ -51,5 +51,12 @@ describe('reducers', () => {
 
       expect(result).toEqual(expected);
     });
+    it('should return state with new questions', () => {
+      const initialState = [];
+      const newQuestions = {hiking: true};
+      const result = questionsReducer(initialState, actions.addUserQuestions(newQuestions));
+
+      expect(result).toEqual([newQuestions]);
+    });
   });
 });
