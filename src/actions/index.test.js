@@ -31,6 +31,16 @@ describe('actions', () => {
 
     expect(result).toEqual(expectedAction);
   });
+  it('should have type of USER_ERROR', () => {
+    const message = 'This email is already on file';
+    const expectedAction = {
+      type: 'USER_ERROR',
+      message
+    };
+    const result = actions.userError(message);
+
+    expect(result).toEqual(expectedAction);
+  });
     expect(result).toEqual(expectedAction);
   });
 });
