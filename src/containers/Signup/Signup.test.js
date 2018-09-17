@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { Signup, mapStateToProps, mapDispatchToProps } from './Signup';
-import { loginUser } from '../../actions';
+import { loginUser, userError } from '../../actions';
 
 describe('Signup Component', () => {
   let wrapper;
@@ -66,6 +66,14 @@ describe('Signup Component', () => {
       const actionToDispatch = loginUser();
       const mappedProps = mapDispatchToProps(mockDispatch);
       mappedProps.login();
+
+      expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch);
+    });
+    it('should dispatch userError when userError is invoked', () => {
+      const mockDispatch = jest.fn();
+      const actionToDispatch = userError();
+      const mappedProps = mapDispatchToProps(mockDispatch);
+      mappedProps.userError();
 
       expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch);
     });
