@@ -1,6 +1,7 @@
 import { meetupsReducer } from './meetupsReducer';
 import { userReducer } from './userReducer';
 import { questionsReducer } from './questionsReducer';
+import { userErrorReducer } from './userErrorReducer';
 import * as actions from '../actions';
 
 describe('reducers', () => {
@@ -64,7 +65,14 @@ describe('reducers', () => {
     it('should return initial state', () => {
       const expected = '';
       const result = (undefined, '');
-      
+
+      expect(result).toEqual(expected);
+    });
+    it('should return an error message to the user', () => {
+      const initialState = '';
+      const expected = 'Email already has account';
+      const result = userErrorReducer(initialState, actions.userError('Email already has account'));
+
       expect(result).toEqual(expected);
     });
   });
