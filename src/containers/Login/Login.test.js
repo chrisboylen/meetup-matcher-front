@@ -43,4 +43,15 @@ describe('Login Component', () => {
       expect(spy).toHaveBeenCalled();
     });
   });
+
+  describe('mapDispatchToProps', () => {
+    it('should dispatch loginUser when login is invoked', () => {
+      const mockDispatch = jest.fn();
+      const actionToDispatch = loginUser();
+      const mappedProps = mapDispatchToProps(mockDispatch);
+      mappedProps.login();
+
+      expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch);
+    });
+  });
 });
