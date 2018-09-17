@@ -6,7 +6,6 @@ import { signInFirebase } from '../../firebase/auth';
 import { getUserInfoFirebase } from '../../firebase/firebase';
 import { userError, loginUser } from '../../actions';
 import { auth } from '../../firebase/firebase';
-import { cleanUserInfo } from '../../Utilities/helper';
 
 export class Login extends Component {
   constructor() {

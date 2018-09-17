@@ -5,6 +5,14 @@ exports[`Meetup should match snapshot 1`] = `
   className="meetup"
 >
   <h2 />
+  <h4>
+    Who is this meetup for: 
+    <span />
+  </h4>
+  <h4>
+    Description: 
+    <span />
+  </h4>
   <a>
     website
   </a>

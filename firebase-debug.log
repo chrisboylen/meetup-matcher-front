@@ -1,28 +1,28 @@
-[debug] [2018-09-16T20:08:51.203Z] ----------------------------------------------------------------------
-[debug] [2018-09-16T20:08:51.208Z] Command:       /Users/chrisboylen/.nvm/versions/node/v9.8.0/bin/node /Users/chrisboylen/.nvm/versions/node/v9.8.0/bin/firebase serve
-[debug] [2018-09-16T20:08:51.214Z] CLI Version:   4.2.1
-[debug] [2018-09-16T20:08:51.214Z] Platform:      darwin
-[debug] [2018-09-16T20:08:51.214Z] Node Version:  v9.8.0
-[debug] [2018-09-16T20:08:51.215Z] Time:          Sun Sep 16 2018 14:08:51 GMT-0600 (MDT)
-[debug] [2018-09-16T20:08:51.216Z] ----------------------------------------------------------------------
+[debug] [2018-09-17T02:13:41.192Z] ----------------------------------------------------------------------
+[debug] [2018-09-17T02:13:41.194Z] Command:       /Users/chrisboylen/.nvm/versions/node/v9.8.0/bin/node /Users/chrisboylen/.nvm/versions/node/v9.8.0/bin/firebase serve
+[debug] [2018-09-17T02:13:41.195Z] CLI Version:   4.2.1
+[debug] [2018-09-17T02:13:41.195Z] Platform:      darwin
+[debug] [2018-09-17T02:13:41.195Z] Node Version:  v9.8.0
+[debug] [2018-09-17T02:13:41.196Z] Time:          Sun Sep 16 2018 20:13:41 GMT-0600 (MDT)
+[debug] [2018-09-17T02:13:41.196Z] ----------------------------------------------------------------------
 [debug] 
-[debug] [2018-09-16T20:08:51.289Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
-[debug] [2018-09-16T20:08:51.290Z] > authorizing via signed-in user
-[debug] [2018-09-16T20:08:51.313Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
-[debug] [2018-09-16T20:08:51.333Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+[debug] [2018-09-17T02:13:41.209Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-09-17T02:13:41.210Z] > authorizing via signed-in user
+[debug] [2018-09-17T02:13:41.220Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2018-09-17T02:13:41.220Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
 
-[debug] [2018-09-16T20:08:51.577Z] <<< HTTP RESPONSE 200
-[debug] [2018-09-16T20:08:51.593Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/meetup-matcher  
+[debug] [2018-09-17T02:13:41.637Z] <<< HTTP RESPONSE 200
+[debug] [2018-09-17T02:13:41.653Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/meetup-matcher  
  
-[debug] [2018-09-16T20:08:52.004Z] <<< HTTP RESPONSE 200
-[debug] [2018-09-16T20:08:52.006Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/meetup-matcher  
+[debug] [2018-09-17T02:13:42.293Z] <<< HTTP RESPONSE 200
+[debug] [2018-09-17T02:13:42.294Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/meetup-matcher  
  
-[debug] [2018-09-16T20:08:52.250Z] <<< HTTP RESPONSE 200
+[debug] [2018-09-17T02:13:42.789Z] <<< HTTP RESPONSE 200
 [info] 
 [info] === Serving from '/Users/chrisboylen/Desktop/turing/mod-three/projects/Meetup-Matcher/meetup-matcher'...
 [info] 
-[debug] [2018-09-16T20:08:52.253Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/1063835221050/clients/_:getWebAppConfig  
+[debug] [2018-09-17T02:13:42.791Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/1063835221050/clients/_:getWebAppConfig  
  
-[debug] [2018-09-16T20:08:52.610Z] <<< HTTP RESPONSE 200
+[debug] [2018-09-17T02:13:43.353Z] <<< HTTP RESPONSE 200
 [info] i  hosting[meetup-matcher]: Serving hosting files from: public
 [info] ✔  hosting[meetup-matcher]: Local server: http://localhost:5000

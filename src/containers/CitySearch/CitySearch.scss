@@ -19,13 +19,14 @@ form {
   flex-wrap: wrap;
   margin: 1rem 0 0 0;
     input, button {
+      box-shadow: 0px 8px 19px 0px #0c090a;
       font-size: 1.2rem;
       margin: 0 0 1rem 0;
       min-height: 3rem;
       padding: 0 1rem 0 1rem;
     }
     input {
-      background-color: rgba(12, 8, 10, 0.7);
+      background-color: #1e1c1cb3;
       border: 0;
       color: $mainWhite;
     }
@@ -39,5 +40,9 @@ form {
       border-radius: 0 10px 10px 0;
       color: rgba(255, 38, 0, 1);
       height: 3rem;
+    }
+    button:hover {
+      background-color: #ff0000;
+      color: #0c090a;
     }
 }

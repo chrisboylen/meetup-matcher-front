@@ -5,13 +5,15 @@ import { logoutUser } from '../../actions';
 import { connect } from 'react-redux';
 import Header from '../Header/Header';
 import Questions from '../Questions/Questions';
-
+import CitySearch from '../CitySearch/CitySearch';
 
 export const User = ({ user }) => {
   return(
     <div className="user">
       <Header />
-      <Questions />
+      { !user.questions ?
+        <Questions /> :
+        <CitySearch />  }
     </div>
   )
 };

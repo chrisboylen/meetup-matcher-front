@@ -5,7 +5,9 @@ export const cleanMeetupData = (fetchedMeetup) => {
   const cleanMeetup = {
     name: fetchedMeetup.group,
     website: fetchedMeetup.event_url,
-    description: striptags(fetchedMeetup.description)
+    description: fetchedMeetup.name,
+    who: fetchedMeetup.group.who,
+    image: fetchedMeetup.photo_url
   };
   return cleanMeetup;
 };
