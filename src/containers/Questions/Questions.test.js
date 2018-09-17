@@ -45,5 +45,12 @@ describe('Questions', () => {
       wrapper.instance().handleChange(mockEvent);
       expect(wrapper.state().realEstate).toBe(true);
     });
+    it('should invoke handleChange when traveling is changed', () => {
+      const spy = spyOn(wrapper.instance(), 'handleChange');
+      wrapper.instance().forceUpdate();
+      wrapper.find('#traveling').simulate('change', mockEvent);
+
+      expect(spy).toHaveBeenCalled();
+    });
   });
 });
