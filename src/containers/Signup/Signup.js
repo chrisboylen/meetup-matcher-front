@@ -2,9 +2,11 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { PropTypes } from 'prop-types';
+import Header from '../Header/Header';
 import { createUserFirebase, updateUserFirebase } from '../../firebase/auth';
 import { auth } from '../../firebase/firebase';
 import { loginUser, userError } from '../../actions';
+import './Signup.css';
 
 export class Signup extends Component {
   constructor() {
@@ -46,40 +48,44 @@ export class Signup extends Component {
     const isInvalid = username === '' || email === '' || password === '';
 
     return(
-      <form 
-        className="signup-form"
-        onSubmit={this.handleSubmit}
-      >
-        <input 
-          className="username-input-signup"
-          required
-          type="text"
-          name="username"
-          placeholder="Username"
-          value={username}
-          onChange={this.handleChange}
-        />
-        <input 
-          className="email-input-signup"
-          required
-          type="email"
-          name="email"
-          placeholder="Email"
-          value={email}
-          onChange={this.handleChange}
-        />
-        <input 
-          className="password-input-signup"
-          required
-          type="password"
-          name="password"
-          placeholder="Password"
-          value={password}
-          onChange={this.handleChange}
-        />
-        <button disabled={isInvalid}>Submit</button>
-        {error && <h4>{error.message}</h4>}
-      </form>
+      <div className="header-wrap">
+        <Header />
+        <form 
+          className="signup-form"
+          onSubmit={this.handleSubmit}
+        >
+          <h1>Signup</h1>
+          <input 
+            className="username-input-signup"
+            required
+            type="text"
+            name="username"
+            placeholder="Username"
+            value={username}
+            onChange={this.handleChange}
+          />
+          <input 
+            className="email-input-signup"
+            required
+            type="email"
+            name="email"
+            placeholder="Email"
+            value={email}
+            onChange={this.handleChange}
+          />
+          <input 
+            className="password-input-signup"
+            required
+            type="password"
+            name="password"
+            placeholder="Password"
+            value={password}
+            onChange={this.handleChange}
+          />
+          <button disabled={isInvalid}>Submit</button>
+          {error && <h4>{error.message}</h4>}
+        </form>
+      </div>
     )
   }
 };

@@ -1,0 +1,22 @@
+.header-wrap {
+  text-align: center; }
+
+.signup-form {
+  background-color: #5c5252cc;
+  border-radius: 10px;
+  box-shadow: 0px 8px 19px 0px #0c090a;
+  margin: 2rem;
+  padding: 0;
+  display: inline-flex;
+  flex-direction: column;
+  max-width: 40rem;
+  min-width: 22rem; }
+  .signup-form h1 {
+    background-color: #fff5f5c7;
+    border-radius: 10px 10px 0 0;
+    color: #280303;
+    margin: 0 0 1rem 0;
+    padding: .5rem; }
+  .signup-form input, .signup-form button {
+    border-radius: 10px;
+    margin: 1rem; }
