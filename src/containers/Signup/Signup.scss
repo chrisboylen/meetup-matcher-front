@@ -1,14 +1,19 @@
 $mainDark: #280303;
 
+.header-wrap {
+  text-align: center;
+}
+
 .signup-form {
   background-color: #5c5252cc;
   border-radius: 10px;
   box-shadow: 0px 8px 19px 0px #0c090a;
   margin: 2rem;
   padding: 0;
-  display: flex;
+  display: inline-flex;
   flex-direction: column;
-  width: 40rem;
+  max-width: 40rem;
+  min-width: 22rem;
     h1 {
       background-color: #fff5f5c7;
       border-radius: 10px 10px 0 0;
