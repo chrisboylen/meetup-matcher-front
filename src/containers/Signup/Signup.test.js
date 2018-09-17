@@ -46,5 +46,12 @@ describe('Signup Component', () => {
 
       expect(spy).toHaveBeenCalled();
     });
+    it('should invoke handleChange when password is changed', () => {
+      const spy = spyOn(wrapper.instance(), 'handleChange');
+      wrapper.instance().forceUpdate();
+      wrapper.find('.password-input-signup').simulate('change', mockEvent);
+
+      expect(spy).toHaveBeenCalled();
+    });
   });
 });
