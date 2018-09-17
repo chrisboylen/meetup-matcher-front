@@ -28,10 +28,17 @@ describe('Login Component', () => {
 
       expect(wrapper.state().password).toBe('god');
     });
-    it('should should invoke handleChange when email is changed', () => {
+    it('should invoke handleChange when email is changed', () => {
       const spy = spyOn(wrapper.instance(), 'handleChange');
       wrapper.instance().forceUpdate();
       wrapper.find('.email-input').simulate('change', mockEvent);
+
+      expect(spy).toHaveBeenCalled();
+    });
+    it('should invoke handleChange when password is changed', () => {
+      const spy = spyOn(wrapper.instance(), 'handleChange');
+      wrapper.instance().forceUpdate();
+      wrapper.find('.password-input').simulate('change', mockEvent);
 
       expect(spy).toHaveBeenCalled();
     });
