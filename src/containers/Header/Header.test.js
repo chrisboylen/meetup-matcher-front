@@ -30,4 +30,15 @@ describe('Header Component', () => {
       expect(mappedProps).toEqual(expected);
     });
   });
+
+  describe('mapDispatchToProps', () => {
+    it('should dispatch logoutUser when logout is invoked', () => {
+      const mockDispatch = jest.fn();
+      const actionToDispatch = logoutUser()
+      const mappedProps = mapDispatchToProps(mockDispatch);
+      mappedProps.logout();
+
+      expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch);
+    });
+  });
 });
