@@ -23,7 +23,7 @@ export class Questions extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
     const questions = this.state;
-    const { addUserQuestions } = this.props;
+    const { addUserQuestions, history } = this.props;
     const { username, email } = this.props.user
     const userId = auth.currentUser.uid
 
@@ -131,7 +131,7 @@ export class Questions extends Component {
           /> 
           Real Estate
         </label>
-        <button className="question-btn">bingo</button>
+        <button className="question-btn">SAVE</button>
       </form>
     )
   }
@@ -152,4 +152,4 @@ export const mapDispatchToProps = (dispatch) => ({
   addUserQuestions: (questions) => dispatch(addUserQuestions(questions))
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Questions);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Questions));
