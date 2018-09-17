@@ -104,5 +104,12 @@ describe('Questions', () => {
 
       expect(mappedProps).toEqual(expected);
     });
+    it('should return a user object', () => {
+      const mockState = {user: {name: 'tim'}, meetups: 'gravy'};
+      const expected = {user: {name: 'tim'}};
+      const mappedProps = mapStateToProps(mockState);
+
+      expect(mappedProps).toEqual(expected);
+    });
   });
 });
