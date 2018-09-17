@@ -23,14 +23,14 @@ label {
   display: block;
   padding-left: 2rem; }
   label input {
-    width: 1.5rem;
+    box-shadow: none;
     height: 1.5rem;
     padding: 0;
     margin: 0 1rem 0 0;
     vertical-align: bottom;
     position: relative;
     top: .7rem;
-    *overflow: hidden; }
+    width: 1.5rem; }
 
 input[type="checkbox"]:checked + label {
   background-color: #f50a0a;
