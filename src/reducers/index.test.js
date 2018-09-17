@@ -1,5 +1,6 @@
 import { meetupsReducer } from './meetupsReducer';
 import { userReducer } from './userReducer';
+import { questionsReducer } from './questionsReducer';
 import * as actions from '../actions';
 
 describe('reducers', () => {
@@ -38,6 +39,15 @@ describe('reducers', () => {
       const initialState = {name: 'billy', email: 'billy@gmail.com', password: 'billy'};
       const expected = {};
       const result = userReducer(initialState, actions.logoutUser());
+
+      expect(result).toEqual(expected);
+    });
+  });
+
+  describe('questionsReducer', () => {
+    it('should return initial state', () => {
+      const expected = [];
+      const result = (undefined, []);
 
       expect(result).toEqual(expected);
     });
