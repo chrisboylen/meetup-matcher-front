@@ -48,7 +48,7 @@ describe('reducers', () => {
   describe('questionsReducer', () => {
     it('should return initial state', () => {
       const expected = [];
-      const result = (undefined, []);
+      const result = questionsReducer(undefined, []);
 
       expect(result).toEqual(expected);
     });
@@ -64,7 +64,7 @@ describe('reducers', () => {
   describe('userErrorReducer', () => {
     it('should return initial state', () => {
       const expected = '';
-      const result = (undefined, '');
+      const result = userErrorReducer(undefined, '');
 
       expect(result).toEqual(expected);
     });
