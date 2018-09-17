@@ -1,6 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { Header, mapStateToProps, mapDispatchToProps } from './Header';
+import { logoutUser } from '../../actions';
 
 describe('Header Component', () => {
   let wrapper;
@@ -21,6 +22,15 @@ describe('Header Component', () => {
   it('should match snapshot', () => {
     expect(wrapper).toMatchSnapshot();
   });
+
+  describe('handleLogout', () => {
+    it('should call logout when invoked', () => {
+      console.log(wrapper.debug())
+      wrapper.instance().handleLogout()
+      expect(mockLogout).toHaveBeenCalled();
+    });
+  });
+
   describe('mapStateToProps', () => {
     it('return an object of user', () => {
       const mockState = {user: {name: 'Tim'}, logout: 'no'};
