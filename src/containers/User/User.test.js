@@ -15,4 +15,14 @@ describe('User Component', () => {
 
     expect(wrapper).toMatchSnapshot()
   });
+
+  describe('mapStateToProps', () => {
+    it('should return a user object', () => {
+      const mockState = {user: {name: 'tim'}, logoutUser: 'yes'};
+      const expected = {user: {name: 'tim'}};
+      const mappedProps = mapStateToProps(mockState);
+
+      expect(mappedProps).toEqual(expected);
+    });
+  });
 });
