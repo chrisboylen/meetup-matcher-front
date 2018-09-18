@@ -13,7 +13,7 @@ describe('Header Component', () => {
   beforeEach(() => {
     mockLogout = jest.fn();
     mockLogOutFirebase = jest.fn();
-    mockHistory = { push: jest.fn() }
+    mockHistory = { push: jest.fn() };
     wrapper = shallow(
       <Header 
         logout={mockLogout} 
@@ -24,18 +24,18 @@ describe('Header Component', () => {
   });
 
   it('should match snapshot', () => {
-     firebase.auth.currentUser = jest.fn().mockReturnValue({
-       currentUser: true
-     });
+    firebase.auth.currentUser = jest.fn().mockReturnValue({
+      currentUser: true
+    });
 
     expect(wrapper).toMatchSnapshot();
   });
   it('should match snapshot with no user', () => {
-     firebase.auth.currentUser = jest.fn().mockReturnValue({
-       currentUser: false
-     });
+    firebase.auth.currentUser = jest.fn().mockReturnValue({
+      currentUser: false
+    });
 
-     expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toMatchSnapshot();
   });
   describe('handleLogout', () => {
     it('should call logout when invoked', async () => {
@@ -48,7 +48,7 @@ describe('Header Component', () => {
   describe('mapDispatchToProps', () => {
     it('should dispatch logoutUser when logout is invoked', () => {
       const mockDispatch = jest.fn();
-      const actionToDispatch = logoutUser()
+      const actionToDispatch = logoutUser();
       const mappedProps = mapDispatchToProps(mockDispatch);
       mappedProps.logout();
 
