@@ -5,7 +5,6 @@ exports[`User Component should match snapshot when user has no questions 1`] = `
   className="user"
 >
   <withRouter(Connect(Header)) />
-  <withRouter(Connect(Questions)) />
 </div>
 `;
 

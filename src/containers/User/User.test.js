@@ -5,16 +5,22 @@ import { logoutUser } from '../../actions/index';
 
 describe('User Component', () => {
   it('should match snapshot when user has questions', () => {
-    const mockUser = {questions: 'yes'}
+    const mockUser = {questions: 'yes'};
     const wrapper = shallow(<User user={mockUser} />);
 
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper).toMatchSnapshot();
   });
   it('should match snapshot when user has no questions', () => {
-    const mockUser = {questions: ''}
-    const wrapper = shallow(<User user={mockUser} />);
+    const mockUser = {questions: ''};
+    const mockHistory = {push: jest.fn()};
+    const wrapper = shallow(
+      <User 
+        user={mockUser} 
+        history={mockHistory}
+      />
+    );
 
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper).toMatchSnapshot();
   });
 
   describe('mapStateToProps', () => {
