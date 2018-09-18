@@ -8,6 +8,9 @@ $mainRed: #ff0000;
   height: 9rem;
   justify-content: space-between;
   padding: 0;
+    .title-link {
+      text-decoration: none;
+    }
     h1 {
       font-family: 'Paytone One', sans-serif;
       color: $mainRed;
@@ -26,17 +29,9 @@ $mainRed: #ff0000;
       padding: 3.6rem 2rem 3.6rem 2rem;
       align-self: center;
       margin: 0;
-        button {
-          background-color: transparent;
-          border: 0;
-          font-size: 1.3rem;
-        }
     }
     a:hover {
       background-color: black;
-      color: $mainRed; 
-    }
-    a:hover > * {
       color: $mainRed; 
     }
 }

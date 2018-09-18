@@ -4,9 +4,49 @@ exports[`Header Component should match snapshot 1`] = `
 <header
   className="navbar"
 >
-  <h1>
-    Meetup Matcher
-  </h1>
+  <Link
+    className="title-link"
+    replace={false}
+    to="/"
+  >
+    <h1>
+      Meetup Matcher
+    </h1>
+  </Link>
+  <div
+    className="user-links"
+  >
+    <Link
+      className="form-link login"
+      replace={false}
+      to="/login"
+    >
+      Login
+    </Link>
+    <Link
+      className="form-link signup"
+      replace={false}
+      to="/signup"
+    >
+      Signup
+    </Link>
+  </div>
+</header>
+`;
+
+exports[`Header Component should match snapshot with no user 1`] = `
+<header
+  className="navbar"
+>
+  <Link
+    className="title-link"
+    replace={false}
+    to="/"
+  >
+    <h1>
+      Meetup Matcher
+    </h1>
+  </Link>
   <div
     className="user-links"
   >
