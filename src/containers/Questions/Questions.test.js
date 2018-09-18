@@ -97,6 +97,12 @@ describe('Questions', () => {
     });
   });
 
+  describe('handleSubmit', () => {
+    it('should ', () => {
+      
+    });
+  });
+
   describe('mapStateToProps', () => {
     it('should return an object of questions', () => {
       const mockState = {questions: [{traveling: true}], meetups: 'gravy'};
