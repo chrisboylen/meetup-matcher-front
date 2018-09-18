@@ -22,5 +22,10 @@ exports[`ContentRoute should match snapshot with default path 1`] = `
     exact={true}
     path="/user"
   />
+  <Route
+    component={[Function]}
+    exact={true}
+    path="/user/questions"
+  />
 </Switch>
 `;
