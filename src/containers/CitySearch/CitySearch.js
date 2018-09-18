@@ -5,7 +5,7 @@ import { PropTypes } from 'prop-types';
 import MeetupsCont from '../MeetupsCont/MeetupsCont';
 import { fetchPopularMeetups } from '../../Utilities/fetchData';
 import { getMeetups } from '../../actions';
-import './CitySearch.css'
+import './CitySearch.css';
 
 export class CitySearch extends Component {
   constructor () {
@@ -32,7 +32,7 @@ export class CitySearch extends Component {
     this.setState({
       city: '',
       state: ''
-    })
+    });
   }
 
   render() {
