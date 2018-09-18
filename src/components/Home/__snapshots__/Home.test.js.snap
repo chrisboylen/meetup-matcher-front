@@ -4,7 +4,7 @@ exports[`Home should match snapshot 1`] = `
 <article
   className="home-cont"
 >
-  <Connect(Component) />
+  <withRouter(Connect(Header)) />
   <withRouter(Connect(CitySearch)) />
 </article>
 `;
