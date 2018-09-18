@@ -1,5 +1,7 @@
 import { meetupsReducer } from './meetupsReducer';
 import { userReducer } from './userReducer';
+import { questionsReducer } from './questionsReducer';
+import { userErrorReducer } from './userErrorReducer';
 import * as actions from '../actions';
 
 describe('reducers', () => {
@@ -38,6 +40,38 @@ describe('reducers', () => {
       const initialState = {name: 'billy', email: 'billy@gmail.com', password: 'billy'};
       const expected = {};
       const result = userReducer(initialState, actions.logoutUser());
+
+      expect(result).toEqual(expected);
+    });
+  });
+
+  describe('questionsReducer', () => {
+    it('should return initial state', () => {
+      const expected = [];
+      const result = questionsReducer(undefined, []);
+
+      expect(result).toEqual(expected);
+    });
+    it('should return state with new questions', () => {
+      const initialState = [];
+      const newQuestions = {hiking: true};
+      const result = questionsReducer(initialState, actions.addUserQuestions(newQuestions));
+
+      expect(result).toEqual([newQuestions]);
+    });
+  });
+
+  describe('userErrorReducer', () => {
+    it('should return initial state', () => {
+      const expected = '';
+      const result = userErrorReducer(undefined, '');
+
+      expect(result).toEqual(expected);
+    });
+    it('should return an error message to the user', () => {
+      const initialState = '';
+      const expected = 'Email already has account';
+      const result = userErrorReducer(initialState, actions.userError('Email already has account'));
 
       expect(result).toEqual(expected);
     });

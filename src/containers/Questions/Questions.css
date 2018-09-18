@@ -5,14 +5,14 @@
   display: flex;
   flex-direction: column;
   padding: 0;
-  margin: 4rem auto;
+  margin: 2rem auto;
   width: 30rem; }
   .user-questions h2 {
     background-color: #fef5f5d9;
     border-radius: 12px 12px 0 0;
     color: #ff0000;
     text-align: center;
-    margin: 0 0 1rem 0;
+    margin: 0;
     padding: .8rem; }
   .user-questions .question-btn {
     border-radius: 10px;

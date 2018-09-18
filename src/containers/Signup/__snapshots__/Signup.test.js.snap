@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Signup Component should match snapshot 1`] = `
+<div
+  className="header-wrap"
+>
+  <withRouter(Connect(Header)) />
+  <form
+    className="signup-form"
+    onSubmit={[Function]}
+  >
+    <h1>
+      Signup
+    </h1>
+    <input
+      className="username-input-signup"
+      name="username"
+      onChange={[Function]}
+      placeholder="Username"
+      required={true}
+      type="text"
+      value=""
+    />
+    <input
+      className="email-input-signup"
+      name="email"
+      onChange={[Function]}
+      placeholder="Email"
+      required={true}
+      type="email"
+      value=""
+    />
+    <input
+      className="password-input-signup"
+      name="password"
+      onChange={[Function]}
+      placeholder="Password"
+      required={true}
+      type="password"
+      value=""
+    />
+    <button
+      disabled={true}
+    >
+      Signup
+    </button>
+  </form>
+</div>
+`;
