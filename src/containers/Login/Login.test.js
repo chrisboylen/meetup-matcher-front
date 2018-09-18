@@ -84,7 +84,6 @@ describe('Login Component', () => {
     });
 
     it.skip('should invoke login when when called', async () => {
-      wrapper = shallow(<Login login={mockLogin} />);
       await wrapper.instance().handleLoginSubmit(mockEvent);
       
       expect(mockLogin).toHaveBeenCalled();
