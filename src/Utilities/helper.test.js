@@ -40,7 +40,26 @@ describe('cleanUserInfo', () => {
       username: 'tim',
       email: 'tim@gmail.com',
       userId: 2,
-      questions: [{hiking: true}]
+      questions: [{hiking: true}] 
+    };
+    const result = cleanUserInfo(firstUser);
+
+    expect(result).toEqual(expected);
+  });
+  it('should return a clean userInfo object without questions', () => {
+    const firstUser = {
+      otherstuff: 'ghghg',
+      otherstuff2: 'gjgjgj',
+      otherstuff3: 'klklklk',
+      userName: 'tim',
+      email: 'tim@gmail.com',
+      userId: 2
+    };
+    const expected = {
+      username: 'tim',
+      email: 'tim@gmail.com',
+      userId: 2,
+      questions: []
     };
     const result = cleanUserInfo(firstUser);
 
