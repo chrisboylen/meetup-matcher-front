@@ -70,7 +70,7 @@ export class CitySearch extends Component {
 
 CitySearch.propTypes = {
   displayMeetups: PropTypes.func,
-  meetups: PropTypes.array
+  meetups: PropTypes.object
 };
 
 export const mapStateToProps = ({ meetups }) => ({ meetups });
