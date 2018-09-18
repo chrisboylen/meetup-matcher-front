@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { PropTypes } from 'prop-types';
-import { NavLink, withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import { signInFirebase } from '../../firebase/auth';
-import { getUserInfoFirebase } from '../../firebase/firebase';
+import { getUserInfoFirebase, auth } from '../../firebase/firebase';
 import { userError, loginUser } from '../../actions';
-import { auth } from '../../firebase/firebase';
 import Header from '../Header/Header';
 import './Login.css';
 
@@ -15,13 +14,13 @@ export class Login extends Component {
     this.state = {
       email: '',
       password: ''
-    }
+    };
   }
 
   handleChange = (e) => {
     const { name, value } = e.target;
 
-    this.setState({ [name]: value })
+    this.setState({ [name]: value });
   }
 
   handleLoginSubmit = async (e) => {
@@ -29,20 +28,20 @@ export class Login extends Component {
     const { history, login } = this.props;
     const { email, password } = this.state;
     await signInFirebase(email, password);
-    const userInfo = await getUserInfoFirebase(auth.currentUser.uid)
+    const userInfo = await getUserInfoFirebase(auth.currentUser.uid);
 
     if (!userInfo) {
-      return userError('Email and/or Password do not match.');
+      userError('Email and/or Password do not match.');
     }
 
-    login(userInfo)
-    history.push('/user')
+    login(userInfo);
+    history.push('/user');
   }
 
   render() {
     const { email, password } = this.state;
 
-    return(
+    return (
       <div className="login-cont">
         <Header />
         <form 
@@ -68,12 +67,12 @@ export class Login extends Component {
             value={password}
             onChange={this.handleChange}
           />
-          <button>Submit</button>
+          <button>Login</button>
         </form>
       </div>
-    )
+    );
   }
-};
+}
 
 Login.propTypes = {
   login: PropTypes.func,
