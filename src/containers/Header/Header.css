@@ -5,6 +5,8 @@
   height: 9rem;
   justify-content: space-between;
   padding: 0; }
+  .navbar .title-link {
+    text-decoration: none; }
   .navbar h1 {
     font-family: 'Paytone One', sans-serif;
     color: #ff0000;
