@@ -1,11 +1,13 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { Login, mapStateToProps, mapDispatchToProps } from './Login';
+import { Login, mapDispatchToProps } from './Login';
 import { loginUser, userError } from '../../actions/index';
+
+/*global spyOn*/
 
 describe('Login Component', () => {
   let wrapper;
-  let mockEvent
+  let mockEvent;
 
   beforeEach(() => {
     wrapper = shallow(<Login />);
@@ -41,6 +43,51 @@ describe('Login Component', () => {
       wrapper.find('.password-input').simulate('change', mockEvent);
 
       expect(spy).toHaveBeenCalled();
+    });
+  });
+
+  describe('handleLoginSubmit', () => {
+    let mockSignInFirebase;
+    let mockGetUserInfoFirebase;
+    let mockUserError;
+    let mockLogin;
+    let mockHistory;
+    let mockUser;
+    let mockUserInfo;
+
+    beforeEach(() => {
+      mockSignInFirebase = jest.fn();
+      mockGetUserInfoFirebase = jest.fn();
+      mockUserError = jest.fn();
+      mockLogin = jest.fn();
+      mockHistory = {push: jest.fn()};
+      mockEvent = {preventDefault: jest.fn()};
+      mockUser = {
+        username: 'tim',
+        email: 't@gmail.com',
+        userId: '1',
+        password: 'password'
+      };
+      mockUserInfo = {mockUser};
+
+      wrapper = shallow(
+        <Login 
+          signInFirebase={mockSignInFirebase}
+          getUserInfoFirebase={mockGetUserInfoFirebase}
+          userError={mockUserError}
+          login={mockLogin}
+          history={mockHistory}
+          user={mockUser}
+          userInfo={mockUserInfo}
+        />
+      );
+    });
+
+    it.skip('should invoke login when when called', async () => {
+      wrapper = shallow(<Login login={mockLogin} />);
+      await wrapper.instance().handleLoginSubmit(mockEvent);
+      
+      expect(mockLogin).toHaveBeenCalled();
     });
   });
 

@@ -31,10 +31,10 @@ describe('fetchPopularMeetups', () => {
     expect(result).toEqual(expected);
   });
   it('should throw an error when status code is not ok', async () => {
-    const error = 'Error getting meetups.'
+    const error = 'Error getting meetups.';
     window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
       json: () => Promise.reject(error)
-    }))
+    }));
     const result = await fetchPopularMeetups();
 
     expect(result).toEqual(error);

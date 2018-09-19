@@ -3,6 +3,8 @@ import { shallow } from 'enzyme';
 import { Questions, mapStateToProps, mapDispatchToProps } from './Questions';
 import { addUserQuestions } from '../../actions';
 
+/*global spyOn*/
+
 describe('Questions', () => {
   let wrapper;
   let mockEvent;
@@ -98,8 +100,31 @@ describe('Questions', () => {
   });
 
   describe('handleSubmit', () => {
-    it('should ', () => {
-      
+    let mockUpdateQuestionsFirebase;
+    let mockAddUserQuestions;
+    let mockUser;
+    let mockHistory;
+
+    beforeEach(() => {
+      mockUpdateQuestionsFirebase = jest.fn();
+      mockAddUserQuestions = jest.fn();
+      mockUser = {username: 'tim', email: 't@gmail.com', userId: '1'};
+      mockHistory = {push: jest.fn()};
+      wrapper = shallow(
+        <Questions 
+          updateQuestionsFirebase={mockUpdateQuestionsFirebase}
+          addUserQuestions={mockAddUserQuestions}
+          user={mockUser}
+          history={mockHistory}
+        />
+      );
+    });
+
+    it('should invoke addUserQuestions when handleSubmit is called', () => {
+      mockEvent = {preventDefault: jest.fn()};
+      wrapper.instance().handleSubmit(mockEvent);
+
+      expect(mockAddUserQuestions).toHaveBeenCalled();
     });
   });
 

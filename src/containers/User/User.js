@@ -1,28 +1,28 @@
- import React from 'react';
+import React from 'react';
 import { PropTypes } from 'prop-types';
-import { logOutFirebase } from '../../firebase/auth';
 import { logoutUser } from '../../actions';
 import { connect } from 'react-redux';
 import Header from '../Header/Header';
-import Questions from '../Questions/Questions';
 import CitySearch from '../CitySearch/CitySearch';
 
-export const User = ({ user }) => {
-  return(
+export const User = ({ user, history }) => {
+  return (
     <div className="user">
       <Header />
       { !user.questions ?
-        <Questions /> :
+        history.push('/user/questions'):
         <CitySearch />  }
     </div>
-  )
+  );
 };
 
 User.propTypes = {
-  user: PropTypes.object
+  user: PropTypes.object,
+  logoutUser: PropTypes.func,
+  history: PropTypes.object
 };
 
-export const mapStateToProps = ({ user }) => ({ user });
+export const mapStateToProps = ({ user, questions }) => ({ user, questions });
 
 export const mapDispatchToProps = (dispatch) => ({
   logoutUser: () => dispatch(logoutUser())

@@ -1,7 +1,9 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { CitySearch, mapStateToProps, mapDispatchToProps } from './CitySearch';
-import { displayMeetups } from '../../actions';
+import { getMeetups } from '../../actions';
+
+/*global spyOn*/
 
 describe('CitySearch', () => {
   let wrapper;
@@ -13,7 +15,10 @@ describe('CitySearch', () => {
   });
 
   it('should match snapshot', () => {
-    const wrapper = shallow(<CitySearch />);
+    expect(wrapper).toMatchSnapshot();
+  });
+  it('should match snapshot with meetups', () => {
+    const wrapper = shallow(<CitySearch meetups={{first: 'yes'}}/>);
 
     expect(wrapper).toMatchSnapshot();
   });
@@ -45,21 +50,21 @@ describe('CitySearch', () => {
   });
 
   describe('handleSubmit', () => {
-    let mockDisplayMeetups;
+    let mockGetMeetups;
 
     beforeEach(() => {
       window.fetch = jest.fn().mockImplementation(() => Promise.resolve({json: () => Promise.resolve({name: 'bingo'})}));
 
-      mockDisplayMeetups = jest.fn();
+      mockGetMeetups = jest.fn();
       mockEvent = {preventDefault: jest.fn()};
       wrapper = shallow(
-        <CitySearch displayMeetups={mockDisplayMeetups} />
+        <CitySearch getMeetups={mockGetMeetups} />
       );
     });
-    it('should invoke displayMeetups when handleSubmit is invoked', async () => {
+    it('should invoke getMeetups when handleSubmit is invoked', async () => {
       await wrapper.instance().handleSubmit(mockEvent);
 
-      expect(mockDisplayMeetups).toHaveBeenCalled();
+      expect(mockGetMeetups).toHaveBeenCalled();
     });
     it('should set state to empty string when handleSubmit invoked', async () => {
       wrapper.setState({city: 'denver', state: 'co'});
@@ -90,11 +95,11 @@ describe('CitySearch', () => {
   });
 
   describe('mapDispatchToProps', () => {
-    it('dispatch displayMeetups action when displayMeetups is invoked', () => {
+    it('dispatch getMeetups action when getMeetups is invoked', () => {
       const mockDispatch = jest.fn();
-      const actionToDispatch = displayMeetups({name: '1'});
+      const actionToDispatch = getMeetups({name: '1'});
       const mappedProps = mapDispatchToProps(mockDispatch);
-      mappedProps.displayMeetups({name: '1'});
+      mappedProps.getMeetups({name: '1'});
 
       expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch);
     });

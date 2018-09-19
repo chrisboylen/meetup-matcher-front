@@ -1,7 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { MeetupsCont, mapStateToProps, mapDispatchToProps } from './MeetupsCont';
-import { getMeetups } from '../../actions';
+import { MeetupsCont, mapStateToProps } from './MeetupsCont';
 
 describe('MeetupsCont', () => {
   it('should match snapshot', () => {
@@ -23,17 +22,6 @@ describe('MeetupsCont', () => {
 
       const mappedProps = mapStateToProps(mockState);
       expect(mappedProps).toEqual(expected);
-    });
-  });
-
-  describe('mapDispatchToProps', () => {
-    it('calls dispatch with getMeetups action when getMeetups is called', () => {
-      const mockDispatch = jest.fn();
-      const actionToDispatch = getMeetups({name: '1'});
-      const mappedProps = mapDispatchToProps(mockDispatch);
-      mappedProps.getMeetups({name: '1'});
-
-      expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch);
     });
   });
 });
