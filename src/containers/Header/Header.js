@@ -25,7 +25,8 @@ export class Header extends Component {
         <Link 
           className="title-link"
           to="/">
-          <h1>Meetup Matcher</h1>
+          <h1 className="full-txt">Meetup Matcher</h1>
+          <h1 className="short-txt">MM</h1>
         </Link>
         <div className="user-links">
           <Link
