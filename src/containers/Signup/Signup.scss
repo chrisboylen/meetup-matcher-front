@@ -26,3 +26,9 @@ $mainDark: #280303;
       margin: 1rem;
     }
 }
+
+@media only screen and (max-width: 480px) {
+  .signup-form {
+      min-width: 0;
+  }
+}

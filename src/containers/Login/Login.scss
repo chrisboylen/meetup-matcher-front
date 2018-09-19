@@ -26,3 +26,10 @@ $mainDark: #280303;
       margin: 1rem;
     }
 }
+
+@media only screen and (max-width: 480px) {
+  .login-form {
+    min-width: 0;
+    margin: 2rem .5rem 0 .5rem;
+  }
+}
