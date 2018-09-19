@@ -23,7 +23,7 @@ Created by [Chris Boyen](https://github.com/chrisboylen "Chris Boyen").
 ![meetups-denver](src/images/meetups-meetup.png)
 ![login-screen](src/images/login-meetup.png)
 <div align="center">
-  <img src="/mobile-meetup.png" />
+  <img src="https://github.com/chrisboylen/meetup-matcher-front/blob/master/src/images/mobile-meetup.png" />
 </div>
 
     
