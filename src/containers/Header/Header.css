@@ -40,3 +40,7 @@
   .navbar .short-txt {
     display: block;
     margin: 0 0 0 1rem; } }
+
+@media only screen and (max-width: 480px) {
+  .user-links a {
+    padding: 3.8rem .5rem 3.8rem .5rem; } }
