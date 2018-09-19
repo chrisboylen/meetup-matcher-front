@@ -23,5 +23,5 @@ Created by [Chris Boyen](https://github.com/chrisboylen "Chris Boyen").
 ![meetups-denver](src/images/meetups-meetup.png)
 ![login-screen](src/images/login-meetup.png)
 <div align="center">
-  <img src=""https://raw.githubusercontent.com/chrisboylen/meetup-matcher-front/master//images/mobile-meetup.png" />
+  <img src=""https://raw.githubusercontent.com/chrisboylen/meetup-matcher-front/master/images/mobile-meetup.png" />
 </div>
