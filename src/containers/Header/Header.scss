@@ -61,11 +61,3 @@ $mainRed: #ff0000;
   }
 }
 
-@media only screen and (max-width: 770px) {
-  form {
-    flex-direction: column;
-      button, input {
-        border-radius: 10px;
-      }
-  }
-}
