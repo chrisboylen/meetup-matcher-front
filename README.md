@@ -3,9 +3,9 @@
 This project is working off the The Movie DB API [The Meetup API](https://www.meetup.com/meetup_api/)  
 The idea of the project is to be able to sign in as a user and enter a city and state location.  Then recieve a list of meetups for that location based on user preferences.
 
-Using Firebase realtime database as a backend, I set up a separate client-side application (use create-react-app), to sit alongside this one.
+Using Firebase realtime database as a backend, I set up a separate client-side application using create-react-app.
 
-Coreated by [Chris Boyen](https://github.com/chrisboylen "Chris Boyen").
+Created by [Chris Boyen](https://github.com/chrisboylen "Chris Boyen").
 
 ## Steps to run App
 
