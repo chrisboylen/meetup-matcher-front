@@ -1,6 +1,3 @@
-import moment from 'react-moment';
-var striptags = require('striptags');
-
 export const cleanMeetupData = (fetchedMeetup) => {
   const cleanMeetup = {
     name: fetchedMeetup.group,

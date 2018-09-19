@@ -17,8 +17,12 @@ $mainRed: #ff0000;
       font-size: 3.5rem;
       margin: 0 0 0 5rem;
     }
+    .short-txt {
+      display: none;
+    }
 }
   
+
 .user-links {
   display: flex;
     a {
@@ -35,3 +39,25 @@ $mainRed: #ff0000;
       color: $mainRed; 
     }
 }
+
+@media only screen and (max-width: 1060px) {
+  .user-links{
+    a {
+      font-size: 1.1rem;
+      padding: 3.8rem 2rem 3.8rem 2rem;
+    }
+  }
+}
+
+@media only screen and (max-width: 965px) {
+  .navbar {
+    .full-txt {
+      display: none;
+    }
+    .short-txt {
+      display: block;
+      margin: 0 0 0 1rem;
+    }
+  }
+}
+
