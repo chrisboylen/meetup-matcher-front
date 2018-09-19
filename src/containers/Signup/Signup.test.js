@@ -1,7 +1,9 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { Signup, mapStateToProps, mapDispatchToProps } from './Signup';
+import { Signup, mapDispatchToProps } from './Signup';
 import { loginUser, userError } from '../../actions';
+
+/*global spyOn*/
 
 describe('Signup Component', () => {
   let wrapper;
@@ -57,7 +59,40 @@ describe('Signup Component', () => {
   });
 
   describe('handleSubmit', () => {
-    
+    let mockUser;
+    let mockHistory;
+    let mockLogin;
+    let mockUserName;
+    let mockUpdatedUser;
+
+    beforeEach(() => {
+      mockUser = {
+        username: 'tim',
+        email: 't@gmail.com',
+        userId: '1',
+        password: 'password'
+      };
+      mockHistory = {push: jest.fn()};
+      mockLogin = jest.fn();
+      mockUserName = 'tim';
+      mockUpdatedUser = {...mockUser};
+      mockEvent = {preventDefault: jest.fn()};
+      wrapper = shallow(
+        <Signup
+          user={mockUser}
+          history={mockHistory}
+          login={mockLogin}
+          username={mockUserName}
+          updatedUser={mockUpdatedUser}
+        />
+      );
+    });
+
+    it.skip('should invoke login when handleSubmit is called', async () => {
+      await wrapper.instance().handleSubmit(mockEvent);
+
+      expect(mockLogin).toHaveBeenCalled();
+    });
   });
 
   describe('mapDispatchToProps', () => {

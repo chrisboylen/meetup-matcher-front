@@ -16,13 +16,13 @@ export class Signup extends Component {
       email: '',
       password: '',
       error: null
-    }
+    };
   }
 
   handleChange = (e) => {
     const { name, value } = e.target;
 
-    this.setState({ [name]: value })
+    this.setState({ [name]: value });
   }
 
   handleSubmit = async (e) => {
@@ -31,23 +31,23 @@ export class Signup extends Component {
     const { login, history } = this.props;
     const newUser = {username, email};
     const userInfo = await createUserFirebase(email, password);
-     await updateUserFirebase(username)
+    await updateUserFirebase(username);
 
     if (!userInfo) {
       return userError('Email has already been taken.');
     }
     const updatedUser = { ...newUser,
       userId: auth.currentUser.uid
-    }
+    };
     login(updatedUser);
-    history.push('/user')
+    history.push('/user');
   }
 
   render() {
     const { username, email, password, error } = this.state;
     const isInvalid = username === '' || email === '' || password === '';
 
-    return(
+    return (
       <div className="header-wrap">
         <Header />
         <form 
@@ -86,15 +86,15 @@ export class Signup extends Component {
           {error && <h4>{error.message}</h4>}
         </form>
       </div>
-    )
+    );
   }
-};
+}
 
 Signup.propTypes = {
   login: PropTypes.func,
   history: PropTypes.object,
   userError: PropTypes.func
-}
+};
 
 export const mapDispatchToProps = (dispatch) => ({
   login: (user) => dispatch(loginUser(user)),
